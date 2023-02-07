@@ -4,5 +4,6 @@
 }
 
 .hero-image {
-  max-height: 400px;
+  height: 400px;
+  filter: opacity(40%);
 }

@@ -1,7 +1,7 @@
-import React, { ImgHTMLAttributes } from "react";
+import React, { HTMLAttributes } from "react";
 import logo from "../../logo.svg";
-import pokerImg from "./pokerImg.jpg";
-import { Carousel, Container } from "react-bootstrap";
+import pokerImg from "./cardGameImg.jpeg";
+import { Carousel, Container, Image } from "react-bootstrap";
 import "./index.css";
 import { url } from "inspector";
 
@@ -9,6 +9,7 @@ type HeroCarouselItem = {
   title: string;
   imgSrc: string;
   imgAlt?: string;
+  color?: string;
   description?: string;
 };
 
@@ -19,6 +20,7 @@ const heroes: HeroCarouselItem[] = [
   {
     title: "Poker",
     imgSrc: pokerImg,
+    color: "blue",
     description: "This is a lengthy description",
   },
 ];
@@ -27,21 +29,19 @@ const Hero = ({}: Props) => {
     <Container className="hero px-0" fluid>
       <Carousel variant="light my-auto">
         {heroes.map((hero, i) => {
-          const { title, imgSrc, description, imgAlt } = hero;
+          const { title, imgSrc, description, imgAlt, color } = hero;
 
           return (
             <Carousel.Item key={i}>
-              <div style={{}}>
-                <img
-                  src={imgSrc}
-                  className="hero-image w-100"
-                  alt={imgAlt ?? title}
-                ></img>
-                <Carousel.Caption>
-                  <h3>{title}</h3>
-                  {description && <p>{description}</p>}
-                </Carousel.Caption>
-              </div>
+              <Image
+                src={imgSrc}
+                className="hero-image w-100 d-block"
+                alt={imgAlt ?? title}
+              ></Image>
+              <Carousel.Caption>
+                <h3 color={color}>{title}</h3>
+                {description && <p>{description}</p>}
+              </Carousel.Caption>
             </Carousel.Item>
           );
         })}
