@@ -1,0 +1,8 @@
+.hero {
+  background-color: rgb(50, 50, 50);
+  overflow: hidden;
+}
+
+.hero-image {
+  max-height: 400px;
+}
